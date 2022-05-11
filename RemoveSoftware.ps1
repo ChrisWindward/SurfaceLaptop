@@ -1,9 +1,7 @@
-# Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
-# Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
-
 Write-Output "Uninstalling default apps"
 $apps = @(
     # default Windows 10 apps
+    "Microsoft.people"
     "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.MixedReality.Portal"
     )
@@ -17,4 +15,5 @@ foreach ($app in $apps) {
 
     ($appxprovisionedpackage).Where( {$_.DisplayName -EQ $app}) |
         Remove-AppxProvisionedPackage -Online
+    Write-Out "Uninstalled $app
 }
