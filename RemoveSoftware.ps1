@@ -8,14 +8,14 @@ $apps = @(
 $appxprovisionedpackage = Get-AppxProvisionedPackage -Online
 
 foreach ($app in $apps) {
-    Write-Output 'Trying to remove' $app
+    Write-Host  $app ' is being removed' -foregroundcolor green
 
     Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
 
     ($appxprovisionedpackage).Where( {$_.DisplayName -EQ $app}) |
         Remove-AppxProvisionedPackage -Online
-    Write-Output 'Uninstalled ' $app
+    Write-Host $app ' was Uninstalled ' 
 
 else 
-    Write-Output $app 'was not found.'
+    Write-Host $app ' was not found.' -foregroundcolor blue
 }
