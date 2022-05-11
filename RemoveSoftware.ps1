@@ -15,7 +15,7 @@ foreach ($app in $apps) {
     ($appxprovisionedpackage).Where( {$_.DisplayName -EQ $app}) |
         Remove-AppxProvisionedPackage -Online
     Write-Output 'Uninstalled ' $app
-}
-else {
+
+else 
     Write-Output $app 'was not found.'
 }
