@@ -1,6 +1,7 @@
 Write-Output "Uninstalling default apps"
 $apps = @(
     # default Windows 10 apps
+    "Microsoft.ZuneMusic"
     "Microsoft.people"
     "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.MixedReality.Portal"
@@ -15,5 +16,5 @@ foreach ($app in $apps) {
 
     ($appxprovisionedpackage).Where( {$_.DisplayName -EQ $app}) |
         Remove-AppxProvisionedPackage -Online
-    Write-Out "Uninstalled " $app
+    Write-Output "Uninstalled " $app
 }
