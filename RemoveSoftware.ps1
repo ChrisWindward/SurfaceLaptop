@@ -9,7 +9,7 @@ $apps = @(
 
 $appxprovisionedpackage = Get-AppxProvisionedPackage -Online
 
-foreach ($app in $apps) {
+if ($app in $apps) {
     Write-Output "Trying to remove $app"
 
     Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
@@ -18,3 +18,5 @@ foreach ($app in $apps) {
         Remove-AppxProvisionedPackage -Online
     Write-Output "Uninstalled " $app
 }
+else 
+    Write-Output $app "was not found.
