@@ -1,6 +1,4 @@
-
-
-Write-Output "Uninstalling default apps"
+Write-Output "Uninstalling default apps" 
 $apps = @(
     # default Windows 10 apps
     "Microsoft.ZuneVideo"
@@ -12,7 +10,7 @@ $apps = @(
 
 $appxprovisionedpackage = Get-AppxProvisionedPackage -Online
 
-foreach ($app -contains $apps) {
+foreach ($app in $apps) {
     Write-Output 'Trying to remove $app'
 
     Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
