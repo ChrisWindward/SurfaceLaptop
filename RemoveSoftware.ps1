@@ -1,3 +1,5 @@
+
+
 Write-Output "Uninstalling default apps"
 $apps = @(
     # default Windows 10 apps
