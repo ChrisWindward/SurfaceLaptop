@@ -1,4 +1,4 @@
-Write-Output "Uninstalling default apps" 
+Write-Host "Uninstalling default apps" -foregroundcolor Red 
 $apps = @(
     # default Windows 10 apps
     "Microsoft.ZuneVideo"
