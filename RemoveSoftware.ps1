@@ -18,5 +18,6 @@ if ($app in $apps) {
         Remove-AppxProvisionedPackage -Online
     Write-Output "Uninstalled " $app
 }
-else 
+else {
     Write-Output $app "was not found.
+}
